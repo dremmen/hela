@@ -334,6 +334,8 @@ export default {
 			.item-list
 				padding 0
 				margin 3rem 0
+				margin-bottom 0
+				padding-bottom 3rem
 				position relative
 				display block
 				img
