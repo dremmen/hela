@@ -200,6 +200,9 @@ export default {
 					line-height 2.7rem
 					border-bottom 1px solid #e5e5e5
 					padding-bottom 2rem
+					text-overflow ellipsis
+					white-space nowrap
+					overflow hidden
 				.active
 					color #FF659B
 </style>

@@ -1,10 +1,10 @@
 <template>
 	<div class="payment">
 		<div class="address">
-			<x-input title="收货人" v-model="name" text-align='right' placeholder="请填写收货人姓名"></x-input>
-			<x-input title="手机号码" v-model="phone" text-align='right' placeholder="请填写收货人手机号码"></x-input>
-			<x-address title="地址" v-model="province" :list="ChinaAddressV4Data" placeholder="请选择地址"></x-address>
-			<x-input class="border-none" title="详细地址" v-model="address" text-align='right' placeholder="请输入街道，门牌等详细地址信息"></x-input>
+			<x-input title="收货人" @focus="focus" v-model="name" text-align='right' placeholder="请填写收货人姓名"></x-input>
+			<x-input title="手机号码" @focus="focus" v-model="phone" text-align='right' placeholder="请填写收货人手机号码"></x-input>
+			<x-address title="地址" v-model="province" :list="ChinaAddressV4Data" placeholder="请选择"></x-address>
+			<x-input class="border-none" @focus="focus" title="详细地址" v-model="address" text-align='right' placeholder="请输入街道，门牌等详细地址信息"></x-input>
 		</div>
 		<div class="goods">
 			<div class="img">
@@ -78,7 +78,8 @@ export default {
     	province: [],
     	ChinaAddressV4Data: ChinaAddressV4Data,
     	show: false,
-    	img_block: false
+    	img_block: false,
+    	position_focus: false
     }
   },
   created () {
@@ -87,10 +88,14 @@ export default {
     router (path) {
       this.$router.push(path)
     },
+    focus () {
+    	this.position_focus = true
+    	alert(this.position_focus)
+    }
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 .payment
 	background-color #f2f2f2
 	min-width 100vw
@@ -104,7 +109,7 @@ export default {
 				font-size 1.5rem
 				color #666
 			.vux-cell-placeholder
-				color #999
+				color #ccc
 		.border-none
 			border none !important
 		.vux-x-input,.vux-cell-box
@@ -125,7 +130,7 @@ export default {
 				color #666
 				line-height 5rem
 				&::-webkit-input-placeholder
-					color #999
+					color #ccc
 	.goods
 		display flex
 		background-color #fff
@@ -186,7 +191,7 @@ export default {
 	.btn
 		height 5rem
 		line-height 5rem
-		position fixed
+		position absolute
 		bottom 0
 		width 100%
 		display flex

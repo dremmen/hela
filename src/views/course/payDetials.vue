@@ -121,6 +121,9 @@ export default {
 				font-size 1.7rem
 				color #333
 				font-weight bold
+				text-overflow ellipsis
+				white-space nowrap
+				overflow hidden
 			.price
 				color #FF659B
 				font-weight bold

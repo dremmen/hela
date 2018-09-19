@@ -8,8 +8,9 @@
     </div>
     <div class="tab">    		
 	    <tab
-	    	active-color = "#FF659B"
-	    	custom-bar-width = "2rem"
+	    	active-color = "#333333"
+	    	default-color = "#ccc"
+	    	custom-bar-width = "0"
 	    	>
 	      <tab-item selected @on-item-click="onItemClick(1)">备孕期</tab-item>
 	      <tab-item @on-item-click="onItemClick(2)">孕早期</tab-item>
@@ -128,12 +129,16 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 	.audio-list
 		.audio
 			padding 2rem 1.5rem
 			background-color #fff
 			border-bottom 1px solid #e5e5e5
+		.tab
+			.vux-tab-item
+				font-size 1.6rem
+				font-weight 500
 		.recommend
 			padding 0 1.5rem
 			background-color #fff

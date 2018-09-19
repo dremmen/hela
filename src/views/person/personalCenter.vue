@@ -16,15 +16,15 @@
 			</div>
 		</div>
 		<div class="tag-order">
-			<div class="order">
+			<div class="order" @click="router({path: 'order'})">
 				<img src="@/assets/gerenzhongxin3.png">
 				<p>待发货</p>
 			</div>
-			<div class="order">
+			<div class="order" @click="router({path: 'order'})">
 				<img src="@/assets/gerenzhongxin4.png">
 				<p>已发货</p>
 			</div>
-			<div class="order border-nonne">
+			<div class="order border-nonne" @click="router({path: 'order'})">
 				<img src="@/assets/gerenzhongxin5.png">
 				<p>全部订单</p>
 			</div>
@@ -33,6 +33,7 @@
 			<div class="item" @click="router({path: 'balance'})">
 				<img class="img-icon" src="@/assets/gerenzhongxin6.png">
 				<span>余额</span>
+				<p class="money">999.99元</p>
 				<img class="img-arrow" src="@/assets/gerenzhongxin13.png">
 			</div>
 			<div class="item" @click="router({path: 'demand'})">
@@ -195,6 +196,13 @@
 					position absolute
 					right 0
 					top 1.925rem
+				.money
+					font-size 1.5rem
+					font-weight bold
+					line-height 1.6rem
+					position absolute
+					top 1.7rem
+					right 2.85rem
 			.border-none
 				border none
 </style>

@@ -78,7 +78,6 @@
     	<div class="item-list border-block" @click="router({path: 'dietInfo'})">
     		<div class="img">
     			<img src="@/assets/home-img1.png">
-    			<span>饮食</span>
     		</div>
     		<div class="con">
     			 <p class="tip">备孕阶段过渡辛辣对身体有什么影响？</p>
@@ -93,7 +92,6 @@
     	<div class="item-list">
     		<div class="img">
     			<img src="@/assets/home-img1.png">
-    			<span>饮食</span>
     		</div>
     		<div class="con">
     			 <p class="tip">备孕阶段过渡辛辣对身体有什么影响？</p>
@@ -107,8 +105,8 @@
     	</div>
     </div>
     <div class="section class">
-    	<h2>热门推荐<img class="h2-img" src="@/assets/yunbangkechen3.png"></h2>
-    	<p class="title">每周更新，精选热门优质课程</p>
+    	<h2>分类点播<img class="h2-img" src="@/assets/yunbangkechen3.png"></h2>
+    	<p class="title">各类点播课程教你呵护胎儿成长</p>
     	<div class="item-list" @click="router({path: 'dietInfo'})">
     		<img src="@/assets/home-img2.png">
     		<span class="mask"></span>
@@ -195,7 +193,7 @@ export default {
 		background-color #f2f2f2
 		min-width 100vw
 		min-height 100vh
-		margin-bottom 7.9rem
+		padding-bottom 5.9rem
 		.search-top
 			position: relative
 			.search-input
@@ -331,6 +329,7 @@ export default {
 					min-width 50%
 					text-align right
 		.class
+			padding-bottom 3rem
 			.item-list
 				padding 0
 				margin-top 3rem

@@ -63,8 +63,6 @@
 				height 5rem
 				overflow hidden
 				position relative
-				label
-					width 6rem
 				input
 					color #333
 					background-color #fff

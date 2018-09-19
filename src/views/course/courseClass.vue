@@ -1,11 +1,11 @@
 <template>
   <div class="course-class">
   	<!-- 课程分类 -->
-  	<div class="nav-tap">
-  		<span class="span-tap" :class="(tabIndex === 1) ? 'active' : ''" @click="tranShow(1)">综合排序</span>
-  		<span class="span-tap" :class="(tabIndex === 2) ? 'active' : ''" @click="tranShow(2)">适合人群</span>
-  		<span class="span-tap" :class="(tabIndex === 3) ? 'active' : ''" @click="tranShow(3)">年龄范围</span>
-  		<span class="span-tap" :class="(tabIndex === 4) ? 'active' : ''" @click="tranShow(4)">孕期阶段</span>
+  	<div class="nav-tap" :class="(show) ? 'course-active' : ''">
+  		<span class="span-tap" :class="(tabIndex === 1) ? 'active' : ''" @click="tranShow(1)">综合排序 <img v-if="tabIndex === 1" src="@/assets/up-arrow.png"><img v-else src="@/assets/down-arrow.png"></span>
+  		<span class="span-tap" :class="(tabIndex === 2) ? 'active' : ''" @click="tranShow(2)">适合人群 <img v-if="tabIndex === 2" src="@/assets/up-arrow.png"><img v-else src="@/assets/down-arrow.png"></span>
+  		<span class="span-tap" :class="(tabIndex === 3) ? 'active' : ''" @click="tranShow(3)">年龄范围 <img v-if="tabIndex === 3" src="@/assets/up-arrow.png"><img v-else src="@/assets/down-arrow.png"></span>
+  		<span class="span-tap" :class="(tabIndex === 4) ? 'active' : ''" @click="tranShow(4)">孕期阶段 <img v-if="tabIndex === 4" src="@/assets/up-arrow.png"><img v-else src="@/assets/down-arrow.png"></span>
   	</div>
   	<div class="course-item">
   		<div class="item-list" @click="router({path: '/payDetials'})">
@@ -70,6 +70,12 @@ export default {
 </script>
 <style lang="stylus" scoped>
 	.course-class
+		.course-active			
+			position fixed
+			top 0
+			width 100%
+			background-color #fff
+			z-index 9999
 		.nav-tap
 			display flex
 			padding 1.5rem 0
@@ -80,22 +86,13 @@ export default {
 				font-size 1.3rem
 				color #333
 				position relative
-				&::after
-					content ''
-					position absolute
-					border-top 1px solid #333
-					border-left 1px solid #333
-					right .6rem
-					bottom .3rem
-					width .6rem
-					height .6rem
-					transform rotateZ(45deg)
+				img
+					display inline-block
+					height .4rem
+					width auto
+					vertical-align middle
 			span.active
 				color #FF659B
-				&::after
-					border-color #FF659B
-					transform rotateZ(-135deg)
-					top .4rem
 		.course-item
 			.item-list
 				display flex

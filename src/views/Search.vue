@@ -80,12 +80,12 @@ export default {
 </script>
 <style lang="stylus" scoped>
 	.home
-		background-color #f2f2f2
+		background-color #fff
 		min-width 100vw
 		min-height 100vh
 		.search-top
 			position: relative
-			margin-bottom 1rem
+			border-bottom 1rem solid #f2f2f2
 			.search-input
 				line-height 4.4rem
 				height 4.4rem
@@ -95,6 +95,7 @@ export default {
 				padding-left 1.5rem
 				box-sizing border-box
 				outline none
+				padding-right 5.5rem
 			.search-span
 				position absolute
 				right 1.5rem
