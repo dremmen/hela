@@ -1,10 +1,10 @@
 <template>
 	<div class="payment">
 		<div class="address">
-			<x-input title="收货人" @focus="focus" v-model="name" text-align='right' placeholder="请填写收货人姓名"></x-input>
-			<x-input title="手机号码" @focus="focus" v-model="phone" text-align='right' placeholder="请填写收货人手机号码"></x-input>
+			<x-input title="收货人" v-mtfocus v-model="name" text-align='right' placeholder="请填写收货人姓名"></x-input>
+			<x-input title="手机号码" v-mtfocus v-model="phone" text-align='right' placeholder="请填写收货人手机号码"></x-input>
 			<x-address title="地址" v-model="province" :list="ChinaAddressV4Data" placeholder="请选择"></x-address>
-			<x-input class="border-none" @focus="focus" title="详细地址" v-model="address" text-align='right' placeholder="请输入街道，门牌等详细地址信息"></x-input>
+			<x-input class="border-none" v-mtfocus title="详细地址" v-model="address" text-align='right' placeholder="请输入街道，门牌等详细地址信息"></x-input>
 		</div>
 		<div class="goods">
 			<div class="img">
@@ -62,7 +62,18 @@
 import { XInput, XAddress, ChinaAddressV4Data, TransferDom, Popup  } from 'vux'
 export default {
   directives: {
-    TransferDom
+    TransferDom,
+    'mtfocus' (el, binding, vnode) {
+      let mtinput = el.querySelector('input')
+      mtinput.onfocus = function () {
+				let btn = document.querySelector('.btn')
+      	btn.className = "btn position_focus"
+      }
+      mtinput.onblur = function () {
+				let btn = document.querySelector('.btn')
+      	btn.className = "btn"
+      }
+    }
   },
   components: {
   	XInput,
@@ -79,7 +90,6 @@ export default {
     	ChinaAddressV4Data: ChinaAddressV4Data,
     	show: false,
     	img_block: false,
-    	position_focus: false
     }
   },
   created () {
@@ -87,10 +97,6 @@ export default {
   methods: {    
     router (path) {
       this.$router.push(path)
-    },
-    focus () {
-    	this.position_focus = true
-    	alert(this.position_focus)
     }
   }
 }
@@ -215,4 +221,8 @@ export default {
 				vertical-align middle
 				position relative
 				top -.2rem				
+	.position_focus.btn
+		position absolute
+		margin-top 2rem
+		bottom auto
 </style>
